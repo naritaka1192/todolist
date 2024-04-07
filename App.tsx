@@ -79,16 +79,6 @@ const handleClick= async ()=>{
     return false
   }
   
-  // const id = textList.length.toString()
-  // const newText={
-  //   // id:id,
-  //   title:title,
-  //   contents:contents,
-  //   answer:answer
-  // }
-  // const newList=[...textList,newText]
-  // setTextList(newList)
-
    const docRef= await addDoc(collection(db,"todos"),{
     title:title,
     contents:contents,
@@ -104,23 +94,6 @@ const handleClick= async ()=>{
     };
   //addvar
 
-
-  // await setDoc(doc(db,"todos",id),{
-  //   id:id,
-  //   title:title,
-  //   contents:contents,
-  //   answer:answer
-  // });
-  
-  // const todosRef = collection(db, "todos");
-  // const q = query(todosRef,where("id", ">=", "0"));
-  
-//   const querySnapshot = await getDocs(q);
-//   const newData = querySnapshot.docs.map((doc) => (
-//     { id: doc.id, data: doc.data()}));
-//   setData(newData);
-// };
-
 useEffect(() => {
   (async()=>{
     const querySnapshot = await getDocs(collection(db,"todos"));
@@ -129,23 +102,6 @@ useEffect(() => {
   setData(newData);
     })();
   },[]);
-//   const fetchData = async () => {
-//     try {
-//       const todosRef = collection(db, "todos");
-//       const q = query(todosRef, where("id", ">=", "0"));
-//       const querySnapshot = await getDocs(q);
-//       const newData = querySnapshot.docs.map((doc) => ({
-//         id: doc.id,
-//         data: doc.data(),
-//       }));
-//       setData(newData);
-//     } catch (error) {
-//       console.error("Error fetching data:", error);
-//     }
-//   };
-
-//   fetchData();
-// }, []);
 
 const deleteClick=async(id:string)=>{
   const numericId = parseInt(id, 10);
@@ -155,15 +111,6 @@ const deleteClick=async(id:string)=>{
   // setOpen(false);  //ダイアログの繰り返し防止
 }
 
-// const editClick=async(id:string)=>{
-//   const numericId =parseInt(id,10);
-//   await setDoc(doc(db,"todos",id),{
-//     // id:id,
-//     title:titleEdit,
-//     contents:contentEdit,
-//     answer:answerEdit
-//   })
-// }
 const editClick=async(id:string)=>{
   // idに該当する現在の項目を見つけます。
   const currentItem = data.find(item => item.id === id);
