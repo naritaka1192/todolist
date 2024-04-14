@@ -216,7 +216,7 @@ function App() {
             {data.map((item) => (
               <div key={item.id}>
                 <h2>【{item.data.title}】{
-                  item.data.status == true ? "完了" : "未完了"
+                  item.data.status == true ? "未完了" : "完了"
                 }</h2>
                 <textarea
                   className="textArea" rows={6} cols={35} defaultValue={item.data.contents}
